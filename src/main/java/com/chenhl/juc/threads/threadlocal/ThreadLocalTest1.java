@@ -14,7 +14,7 @@ public class ThreadLocalTest1 {
     };
     public static void main(String[] args) {
 
-        for (int i=0; i<5; i++) {
+        for (int i=0; i<2; i++) {
             new Thread(new Sample(i)).start();
         }
     }
@@ -28,7 +28,7 @@ public class ThreadLocalTest1 {
         @Override
         public void run() {
             System.out.println("线程" + index + "的初始化值：" + tl.get());
-            for (int i=0; i<10; i++) {
+            for (int i=0; i<3; i++) {
                 tl.set(tl.get() + i);
             }
             System.out.println("线程" + index + "的累加值：" + tl.get());
